@@ -75,4 +75,3 @@ if "tokens" in visualizers and "tokens" in active_visualizers:
 
 if "similarity" in visualizers and "similarity" in active_visualizers:
     visualize_similarity(nlp, key=key)
-    
