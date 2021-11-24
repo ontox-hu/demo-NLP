@@ -66,14 +66,14 @@ doc = process_text(spacy_model, text)
 
 if "ner" in visualizers and "ner" in active_visualizers:
     ner_labels = ner_labels or nlp.get_pipe("ner").labels
-    visualize_ner(doc, labels=ner_labels, colors = cols, attrs=ner_attributes, key=key)
+    spacy_streamlit.visualize_ner(doc, labels=ner_labels, colors = cols, attrs=ner_attributes, key=key)
     
 if "parser" in visualizers and "parser" in active_visualizers:
-    visualize_parser(doc, key=key)
+    spacy_streamlit.visualize_parser(doc, key=key)
 
 if "tokens" in visualizers and "tokens" in active_visualizers:
-    visualize_tokens(doc, attrs=token_attributes, key=key)
+    spacy_streamlit.visualize_tokens(doc, attrs=token_attributes, key=key)
 
 if "similarity" in visualizers and "similarity" in active_visualizers:
-    visualize_similarity(nlp, default_texts = similarity_texts, key=key)
+    spacy_streamlit.visualize_similarity(nlp, default_texts = similarity_texts, key=key)
 
