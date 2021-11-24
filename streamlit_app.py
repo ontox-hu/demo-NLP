@@ -71,7 +71,7 @@ if "parser" in visualizers and "parser" in active_visualizers:
     visualize_parser(doc, key=key)
 
 if "tokens" in visualizers and "tokens" in active_visualizers:
-    visualize_tokens(doc, attrs=token_attributes, key=key
+    visualize_tokens(doc, attrs=token_attributes, key=key)
 
 if "similarity" in visualizers and "similarity" in active_visualizers:
     visualize_similarity(nlp, key=key)
