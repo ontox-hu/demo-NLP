@@ -75,5 +75,5 @@ if "tokens" in visualizers and "tokens" in active_visualizers:
     visualize_tokens(doc, attrs=token_attributes, key=key)
 
 if "similarity" in visualizers and "similarity" in active_visualizers:
-    visualize_similarity(nlp, default_texts: similarity_texts, key=key)
+    visualize_similarity(nlp, default_texts = similarity_texts, key=key)
 
