@@ -12,7 +12,7 @@ visualizers = [ "ner", "parser", "similarity", "tokens"]
 similarity_texts = ("methanol", "ethanol")
 cols = {"COMPOUND":"red", "DOSE":"lightblue", "EXP_ROUTE":"green", "ORGANISM":"orange", "PHENOTYPE":"lightbrown", "PARENT_OFFSPRING":"yellow", "IN_VITRO_VIVO":"pink"}
 
-'''
+
 spacy_streamlit.visualize(models,default_text, visualizers = [ "ner", "parser", "similarity", "tokens"],\
                           similarity_texts = ("methanol", "ethanol"), token_attrs = token_attributes,\
                           show_json_doc = False,show_meta = False, show_config = False, \
@@ -77,3 +77,4 @@ if "tokens" in visualizers and "tokens" in active_visualizers:
 if "similarity" in visualizers and "similarity" in active_visualizers:
     spacy_streamlit.visualize_similarity(nlp, default_texts = similarity_texts, key=key)
 
+'''
