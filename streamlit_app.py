@@ -25,30 +25,31 @@ spacy_streamlit.visualize(models,default_text, visualizers = [ "ner", "parser", 
 
 nlp = ss.load_model("en_tox")
 
+'''
 active_visualizers = st.sidebar.multiselect(
     "Visualizers",
     options=visualizers,
     default=list(visualizers),
     key=f"{key}_viz_select",
 )
-
+'''
 # Text processing
-text = st.text_area("Text to analyze", default_text, key=f"{key}_visualize_text")
+text = st.text_area("Text to analyze", default_text) #, key=f"{key}_visualize_text"
 doc = process_text(spacy_model, text)
 
 # Display visualizers
 
-if "ner" in visualizers and "ner" in active_visualizers:
-    ner_labels = ner_labels or nlp.get_pipe("ner").labels
-    spacy_streamlit.visualize_ner(doc, labels=ner_labels, colors = cols, attrs=ner_attributes, key=key)
+if "ner" in visualizers: #and "ner" in active_visualizers:
+    ner_labels = nlp.get_pipe("ner").labels
+    ss.visualize_ner(doc, labels=ner_labels, colors = cols, attrs=ner_attributes, key=key)
     
-if "parser" in visualizers and "parser" in active_visualizers:
-    spacy_streamlit.visualize_parser(doc, key=key)
+if "parser" in visualizers: # and "parser" in active_visualizers:
+    ss.visualize_parser(doc, key=key)
 
-if "tokens" in visualizers and "tokens" in active_visualizers:
-    spacy_streamlit.visualize_tokens(doc, attrs=token_attributes, key=key)
+if "tokens" in visualizers: # and "tokens" in active_visualizers:
+    ss.visualize_tokens(doc, attrs=token_attributes, key=key)
 
-if "similarity" in visualizers and "similarity" in active_visualizers:
-    spacy_streamlit.visualize_similarity(nlp, default_texts = similarity_texts, key=key)
+if "similarity" in visualizers: # and "similarity" in active_visualizers:
+    ss.visualize_similarity(nlp, default_texts = similarity_texts, key=key)
 
 
