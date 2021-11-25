@@ -12,7 +12,7 @@ visualizers = [ "ner", "parser", "similarity", "tokens"]
 similarity_texts = ("methanol", "ethanol")
 cols = {"COMPOUND":"red", "DOSE":"lightblue", "EXP_ROUTE":"green", "ORGANISM":"orange", "PHENOTYPE":"lightbrown", "PARENT_OFFSPRING":"yellow", "IN_VITRO_VIVO":"pink"}
 
-spacy_streamlit.visualize(models,default_text, visualizers = [ "ner", "parser", "similarity", "tokens"],\
+ss.visualize(models,default_text, visualizers = [ "ner", "parser", "similarity", "tokens"],\
                           similarity_texts = similarity_texts, token_attrs = token_attributes,\
                           show_json_doc = False,show_meta = False, show_config = False, \
                           show_visualizer_select = True,\
