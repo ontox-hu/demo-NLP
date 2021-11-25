@@ -1,4 +1,4 @@
-import spacy_streamlit
+import spacy_streamlit as ss
 import streamlit as st
 
 color = "#09A3D5"
@@ -12,9 +12,9 @@ visualizers = [ "ner", "parser", "similarity", "tokens"]
 similarity_texts = ("methanol", "ethanol")
 cols = {"COMPOUND":"red", "DOSE":"lightblue", "EXP_ROUTE":"green", "ORGANISM":"orange", "PHENOTYPE":"lightbrown", "PARENT_OFFSPRING":"yellow", "IN_VITRO_VIVO":"pink"}
 
-
+'''
 spacy_streamlit.visualize(models,default_text, visualizers = [ "ner", "parser", "similarity", "tokens"],\
-                          similarity_texts = ("methanol", "ethanol"), token_attrs = token_attributes,\
+                          similarity_texts = similarity_texts, token_attrs = token_attributes,\
                           show_json_doc = False,show_meta = False, show_config = False, \
                           show_visualizer_select = True,\
                           sidebar_title = title, sidebar_description = description)
@@ -22,31 +22,8 @@ spacy_streamlit.visualize(models,default_text, visualizers = [ "ner", "parser", 
 '''
 
 ## Setup
-st.config.set_option("theme.primaryColor", color)
-st.experimental_rerun()
-st.sidebar.title(title)
-st.sidebar.markdown(description)
-model_names = models
-format_func = str
-if isinstance(models, dict):
-    format_func = lambda name: models.get(name, name)
-    model_names = list(models.keys())
 
-default_model_index = (
-    model_names.index(default_model)
-    if default_model is not None and default_model in model_names
-    else 0
-)
-spacy_model = st.sidebar.selectbox(
-    "Model",
-    model_names,
-    index=default_model_index,
-    key=f"{key}_visualize_models",
-    format_func=format_func,
-)
-model_load_state = st.info(f"Loading model '{spacy_model}'...")
-nlp = load_model(spacy_model)
-model_load_state.empty()
+nlp = ss.load_model("en_tox")
 
 active_visualizers = st.sidebar.multiselect(
     "Visualizers",
@@ -56,9 +33,6 @@ active_visualizers = st.sidebar.multiselect(
 )
 
 # Text processing
-default_text = (
-    get_default_text(nlp) if get_default_text is not None else default_text
-)
 text = st.text_area("Text to analyze", default_text, key=f"{key}_visualize_text")
 doc = process_text(spacy_model, text)
 
@@ -77,4 +51,4 @@ if "tokens" in visualizers and "tokens" in active_visualizers:
 if "similarity" in visualizers and "similarity" in active_visualizers:
     spacy_streamlit.visualize_similarity(nlp, default_texts = similarity_texts, key=key)
 
-'''
+
