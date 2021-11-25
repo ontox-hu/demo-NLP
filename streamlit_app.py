@@ -34,8 +34,8 @@ active_visualizers = st.sidebar.multiselect(
 )
 '''
 # Text processing
-text = st.text_area("Text to analyze", default_text, key=f"{key}_visualize_text") 
-doc = ss.process_text(spacy_model, text)
+#text = st.text_area("Text to analyze", default_text, key=f"{key}_visualize_text") # Problem here. why?
+doc = ss.process_text(spacy_model, default_text)
 
 # Display visualizers
 
