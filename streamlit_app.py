@@ -35,7 +35,7 @@ active_visualizers = st.sidebar.multiselect(
 '''
 # Text processing
 text = st.text_area("Text to analyze", default_text) #, key=f"{key}_visualize_text"
-doc = process_text(spacy_model, text)
+doc = ss.process_text(spacy_model, text)
 
 # Display visualizers
 
