@@ -11,7 +11,7 @@ token_attributes = ["idx", "text", "pos_", "tag_", "dep_","ent_type_"]
 ner_attributes = ["text", "label_", "start_char", "end_char"]
 visualizers = [ "ner", "parser", "similarity", "tokens"]
 similarity_texts = ("methanol", "ethanol")
-cols = {"COMPOUND":"red", "DOSE":"lightblue", "EXP_ROUTE":"green", "ORGANISM":"orange", "PHENOTYPE":"lightbrown", "PARENT_OFFSPRING":"yellow", "IN_VITRO_VIVO":"pink"}
+cols = {"COMPOUND":"red", "DOSE":"lightblue", "EXP_ROUTE":"green", "ORGANISM":"orange", "PHENOTYPE":"pink", "PARENT_OFFSPRING":"yellow", "IN_VITRO_VIVO":"grey"}
 
 
 cv.visualize(models,default_text, visualizers = [ "ner", "parser", "similarity", "tokens"],\
