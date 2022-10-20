@@ -1,2 +1,2 @@
-https://s3.console.aws.amazon.com/s3/object/tox-nlp-hu?region=eu-west-2&prefix=en_aop_ner_trf-0.1.tar.gz
+https://tox-nlp-hu.s3.eu-west-2.amazonaws.com/en_aop_ner_trf-0.1.tar.gz
 spacy-streamlit==1.0.4
