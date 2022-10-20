@@ -3,19 +3,19 @@ import streamlit as st
 import custom_viz as cv
 
 color = "#09A3D5"
-models = ["en_tox"]
+models = ["en_aop_ner_trf"]
 title = "NLP TOX"
 description = "Text analysis with NLP model trained on toxicological articles"
-default_text = "Benzene in concentrations higher than 3mg can cause vomiting in humans."
+default_text = "The data showed that Quercetin significantly prevented neurotoxicity in mice."
 token_attributes = ["idx", "text", "pos_", "tag_", "dep_","ent_type_"]
 ner_attributes = ["text", "label_", "start_char", "end_char"]
-visualizers = [ "ner", "parser", "similarity", "tokens"]
+visualizers = [ "ner"]
 similarity_texts = ("methanol", "ethanol")
-cols = {"COMPOUND":"red", "DOSE":"lightblue", "EXP_ROUTE":"pink", "ORGANISM":"orange", "PHENOTYPE":"green", "PARENT_OFFSPRING":"yellow", "IN_VITRO_VIVO":"grey"}
+cols = {"MOLECULE":"red", "DISEASE":"lightblue", "DNA":"pink", "ORGANISM":"orange", "EFFECT":"green", "EVENT":"yellow", "LOC":"grey"}
 
 
-cv.visualize(models,default_text, visualizers = [ "ner", "parser", "similarity", "tokens"],\
-                          similarity_texts = similarity_texts, token_attrs = token_attributes,\
+cv.visualize(models,default_text, visualizers = [ "ner"],\
+                          token_attrs = token_attributes,\
                           show_json_doc = False,show_meta = False, show_config = False, \
                           show_visualizer_select = True,\
                           sidebar_title = title, sidebar_description = description, ner_colors = cols)

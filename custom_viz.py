@@ -75,6 +75,8 @@ def visualize(
     )
     model_load_state = st.info(f"Loading model '{spacy_model}'...")
     nlp = load_model(spacy_model)
+    if not ('sentencizer' in nlp.pipe_names):
+      nlp.add_pipe('sentencizer')
     model_load_state.empty()
 
     if show_pipeline_info:
