@@ -3,35 +3,24 @@ import streamlit as st
 import custom_viz as cv
 
 color = "#09A3D5"
-models = ["en_aop_ner_trf"]
+models = ["en_tox"]
 title = "NLP TOX"
 description = "Text analysis with NLP model trained on toxicological articles"
-default_text = "The data showed that Quercetin significantly prevented neurotoxicity in mice."
+default_text = "Benzene in concentrations higher than 3mg can cause vomiting in humans."
 token_attributes = ["idx", "text", "pos_", "tag_", "dep_","ent_type_"]
 ner_attributes = ["text", "label_", "start_char", "end_char"]
-visualizers = [ "ner"]
+visualizers = [ "ner", "parser", "similarity", "tokens"]
 similarity_texts = ("methanol", "ethanol")
-cols = {"MOLECULE":"#d4afb9",
-    "EVENT":"#9cadce",
-    "LOC":"#d1cfe2",
-    "ORGANISM":"#daeaf6",
-    "EFFECT":"#7ec4cf",
-    "DISEASE":"#ffc09f",
-    "DNA":"#d6eadf",
-    "COMPOUND": "#d4afb9",
-    "PHENOTYPE": "#ffc09f",
-    "DOSE" : "#7ec4cf",
-    "PARENT_VS_OFFSPRING":"#d6eadf",
-    "EXPOSURE_ROUTE": "#d1cfe2",
-    "IN_VITRO_VIVO":"#9cadce"
-    }
+cols = {"COMPOUND":"red", "DOSE":"lightblue", "EXP_ROUTE":"green", "ORGANISM":"orange", "PHENOTYPE":"lightbrown", "PARENT_OFFSPRING":"yellow", "IN_VITRO_VIVO":"pink"}
 
 
-cv.visualize(models,default_text, visualizers = [ "ner"],\
-                          token_attrs = token_attributes,\
+cv.visualize(models,default_text, visualizers = [ "ner", "parser", "similarity", "tokens"],\
+                          similarity_texts = similarity_texts, token_attrs = token_attributes,\
                           show_json_doc = False,show_meta = False, show_config = False, \
                           show_visualizer_select = True,\
                           sidebar_title = title, sidebar_description = description, ner_colors = cols)
+
+
 
 
 
