@@ -3,7 +3,7 @@ import streamlit as st
 import custom_viz as cv
 
 color = "#09A3D5"
-models = ["en_aop_ner_trf"]
+models = ["en_tox"]
 title = "NLP TOX"
 description = "Text analysis with NLP model trained on toxicological articles"
 default_text = "The data showed that Quercetin significantly prevented neurotoxicity in mice."
@@ -17,7 +17,14 @@ cols = {"MOLECULE":"#d4afb9",
     "ORGANISM":"#daeaf6",
     "EFFECT":"#7ec4cf",
     "DISEASE":"#ffc09f",
-    "DNA":"#d6eadf"}
+    "DNA":"#d6eadf",
+    "COMPOUND": "#d4afb9",
+    "PHENOTYPE": "#ffc09f",
+    "DOSE" : "#7ec4cf",
+    "PARENT_VS_OFFSPRING":"#d6eadf",
+    "EXPOSURE_ROUTE": "#d1cfe2",
+    "IN_VITRO_VIVO":"#9cadce"
+    }
 
 
 cv.visualize(models,default_text, visualizers = [ "ner"],\
